@@ -1,0 +1,16 @@
+{
+  "name": "day2-functions-loops",
+  "version": "1.0.0",
+  "description": "Day 2 of 21-day full-stack learning journey - Functions & Loops",
+  "main": "functions.js",
+  "scripts": {
+    "start": "node functions.js",
+    "functions": "node functions.js",
+    "loops": "node loops.js",
+    "highest": "node highest-marks.js",
+    "all": "node functions.js && node loops.js && node highest-marks.js"
+  },
+  "keywords": ["javascript", "nodejs", "functions", "loops", "day2"],
+  "author": "Student",
+  "license": "MIT"
+}
