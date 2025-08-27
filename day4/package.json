@@ -1,0 +1,14 @@
+{
+  "name": "day4-nodejs-intro",
+  "version": "1.0.0",
+  "description": "Day 4 - Node.js Introduction",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server.js",
+    "hello": "node hello-api.js"
+  },
+  "keywords": ["nodejs", "http", "server", "day4"],
+  "author": "Student",
+  "license": "MIT"
+}
