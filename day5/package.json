@@ -1,0 +1,16 @@
+{
+  "name": "day5-express-basics",
+  "version": "1.0.0",
+  "description": "Day 5 - Express.js Basics",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["express", "nodejs", "api", "day5"],
+  "author": "Student",
+  "license": "MIT"
+}
