@@ -1,0 +1,17 @@
+{
+  "name": "day8-lists-events",
+  "version": "1.0.0",
+  "description": "Day 8 - Lists & Events",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  }
+}
