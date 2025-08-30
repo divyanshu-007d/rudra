@@ -12,7 +12,7 @@ A complete React application demonstrating full-stack authentication integration
 - Manage authentication state with React Context
 - Create responsive and accessible UI components
 
-## 🚀 Features 
+## 🚀 Features
 
 ### Authentication System
 - **User Registration**: Create new accounts with validation
