@@ -4,7 +4,7 @@
 
 A complete React application demonstrating full-stack authentication integration with protected routes, user management, and secure authentication flow.
 
-## 🎯 Learning Objectives
+## 🎯 Learning Objectives 
 
 - Integrate React frontend with authentication backend
 - Implement protected routes and navigation guards
