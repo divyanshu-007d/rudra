@@ -1,139 +1,195 @@
-// Day 10: Styling - Product Card List
+// Day 10: Tailwind CSS Setup - Styled Product Card List
 
 const products = [
-  { id: 1, name: "MacBook Pro", price: 1299, category: "Laptops", rating: 4.8, image: "💻" },
-  { id: 2, name: "iPhone 15", price: 999, category: "Phones", rating: 4.7, image: "📱" },
-  { id: 3, name: "AirPods Pro", price: 249, category: "Audio", rating: 4.6, image: "🎧" },
-  { id: 4, name: "iPad Air", price: 599, category: "Tablets", rating: 4.5, image: "📱" }
+  { 
+    id: 1, 
+    name: "MacBook Pro", 
+    price: 1299, 
+    category: "Laptops", 
+    rating: 4.8, 
+    image: "💻",
+    description: "Powerful laptop for professionals"
+  },
+  { 
+    id: 2, 
+    name: "iPhone 15", 
+    price: 999, 
+    category: "Phones", 
+    rating: 4.7, 
+    image: "📱",
+    description: "Latest smartphone technology"
+  },
+  { 
+    id: 3, 
+    name: "AirPods Pro", 
+    price: 249, 
+    category: "Audio", 
+    rating: 4.6, 
+    image: "🎧",
+    description: "Premium wireless earbuds"
+  },
+  { 
+    id: 4, 
+    name: "iPad Air", 
+    price: 599, 
+    category: "Tablets", 
+    rating: 4.5, 
+    image: "📱",
+    description: "Versatile tablet for creativity"
+  },
+  { 
+    id: 5, 
+    name: "Apple Watch", 
+    price: 399, 
+    category: "Wearables", 
+    rating: 4.4, 
+    image: "⌚",
+    description: "Smart watch for health tracking"
+  },
+  { 
+    id: 6, 
+    name: "Mac Studio", 
+    price: 1999, 
+    category: "Desktops", 
+    rating: 4.9, 
+    image: "🖥️",
+    description: "Professional desktop computer"
+  }
 ];
 
 function ProductCard({ product }) {
-  const cardStyle = {
-    backgroundColor: 'white',
-    borderRadius: '12px',
-    padding: '20px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.2s, box-shadow 0.2s',
-    border: '1px solid #e2e8f0',
-    cursor: 'pointer'
-  };
-
-  const imageStyle = {
-    fontSize: '48px',
-    textAlign: 'center',
-    marginBottom: '15px'
-  };
-
-  const titleStyle = {
-    fontSize: '18px',
-    fontWeight: '600',
-    marginBottom: '8px',
-    color: '#1a202c'
-  };
-
-  const priceStyle = {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: '#2b6cb0',
-    marginBottom: '8px'
-  };
-
-  const categoryStyle = {
-    fontSize: '14px',
-    color: '#718096',
-    marginBottom: '12px'
-  };
-
-  const ratingStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-    color: '#ed8936'
-  };
-
   return (
-    <div 
-      style={cardStyle}
-      onMouseEnter={(e) => {
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-      }}
-      onMouseLeave={(e) => {
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-      }}
-    >
-      <div style={imageStyle}>{product.image}</div>
-      <h3 style={titleStyle}>{product.name}</h3>
-      <div style={priceStyle}>${product.price}</div>
-      <div style={categoryStyle}>{product.category}</div>
-      <div style={ratingStyle}>
-        <span>⭐</span>
-        <span>{product.rating}</span>
+    <div className="product-card group animate-slide-up">
+      {/* Product Image */}
+      <div className="text-6xl text-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
+        {product.image}
+      </div>
+      
+      {/* Category Badge */}
+      <div className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full mb-3">
+        {product.category}
+      </div>
+      
+      {/* Product Name */}
+      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+        {product.name}
+      </h3>
+      
+      {/* Description */}
+      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+        {product.description}
+      </p>
+      
+      {/* Price */}
+      <div className="text-3xl font-bold text-blue-600 mb-3">
+        ${product.price}
+      </div>
+      
+      {/* Rating */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center space-x-1">
+          <span className="text-yellow-500">⭐</span>
+          <span className="text-gray-700 font-medium">{product.rating}</span>
+          <span className="text-gray-500 text-sm">(128 reviews)</span>
+        </div>
+      </div>
+      
+      {/* Action Buttons */}
+      <div className="flex space-x-2">
+        <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 transform hover:scale-105">
+          Add to Cart
+        </button>
+        <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+          ❤️
+        </button>
       </div>
     </div>
   );
 }
 
 function App() {
-  const containerStyle = {
-    minHeight: '100vh',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    padding: '40px 20px',
-    fontFamily: 'system-ui, -apple-system, sans-serif'
-  };
-
-  const headerStyle = {
-    textAlign: 'center',
-    marginBottom: '40px',
-    color: 'white'
-  };
-
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '20px',
-    maxWidth: '1200px',
-    margin: '0 auto'
-  };
-
-  const badgeStyle = {
-    display: 'inline-block',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    color: 'white',
-    padding: '8px 16px',
-    borderRadius: '20px',
-    fontSize: '14px',
-    marginBottom: '20px'
-  };
-
   return (
-    <div style={containerStyle}>
-      <div style={headerStyle}>
-        <h1 style={{ fontSize: '48px', margin: '0 0 10px 0' }}>🛍️ Day 10: Styled Products</h1>
-        <div style={badgeStyle}>Component-based Styling</div>
-        <p style={{ fontSize: '18px', opacity: 0.9 }}>Beautiful product cards with hover effects</p>
-      </div>
-      
-      <div style={gridStyle}>
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+    <div className="min-h-screen gradient-bg p-8">
+      {/* Header Section */}
+      <header className="text-center text-white mb-12 animate-fade-in">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          🛍️ Day 10: Tailwind CSS
+        </h1>
+        
+        <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+          <span className="text-lg font-medium">Tailwind CSS Setup & Component Styling</span>
+        </div>
+        
+        <p className="text-xl opacity-90 max-w-2xl mx-auto">
+          Beautiful, responsive product cards built with Tailwind CSS utility classes
+        </p>
+        
+        {/* Feature Badges */}
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">
+            ✨ Utility Classes
+          </span>
+          <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">
+            🎨 Custom Components
+          </span>
+          <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">
+            📱 Responsive Design
+          </span>
+          <span className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm">
+            🔄 Smooth Animations
+          </span>
+        </div>
+      </header>
 
-      <div style={{ 
-        textAlign: 'center', 
-        marginTop: '40px', 
-        color: 'white',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        padding: '20px',
-        borderRadius: '12px',
-        maxWidth: '600px',
-        margin: '40px auto 0'
-      }}>
-        <h3>✅ Styling Mastered!</h3>
-        <p>CSS-in-JS • Hover Effects • Responsive Grid • Gradients</p>
-      </div>
+      {/* Products Grid */}
+      <main className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-white text-center mb-8">
+          🎯 Mini Task: Styled Product Card List
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {products.map((product, index) => (
+            <div 
+              key={product.id} 
+              className="animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
+        
+        {/* Success Banner */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center text-white border border-white/20">
+          <h3 className="text-2xl font-bold mb-4">🎉 Tailwind CSS Mastered!</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">⚙️</div>
+              <div className="font-semibold">Configuration</div>
+              <div className="opacity-80">tailwind.config.js</div>
+            </div>
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">🎨</div>
+              <div className="font-semibold">Utility Classes</div>
+              <div className="opacity-80">Responsive & Interactive</div>
+            </div>
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">🧩</div>
+              <div className="font-semibold">Components</div>
+              <div className="opacity-80">@apply Directive</div>
+            </div>
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl mb-2">✨</div>
+              <div className="font-semibold">Animations</div>
+              <div className="opacity-80">Custom Keyframes</div>
+            </div>
+          </div>
+          
+          <p className="mt-6 text-lg">
+            Ready for <strong>Day 11: Backend CRUD</strong> - Full-Stack Integration Phase! 🚀
+          </p>
+        </div>
+      </main>
     </div>
   );
 }

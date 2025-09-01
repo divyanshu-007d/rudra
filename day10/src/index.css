@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .product-card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:-translate-y-1;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500;
+  }
+}
