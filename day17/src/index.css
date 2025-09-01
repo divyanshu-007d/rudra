@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 Global Styles for Chat Application */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* 💬 Chat Message Styles */
+  .message-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-2xl text-sm leading-relaxed break-words;
+  }
+  
+  .message-sent {
+    @apply bg-chat-primary text-white rounded-br-sm ml-auto;
+  }
+  
+  .message-received {
+    @apply bg-white text-gray-900 rounded-bl-sm mr-auto shadow-sm border border-gray-100;
+  }
+  
+  .message-system {
+    @apply bg-gray-100 text-gray-600 text-center text-xs py-2 px-4 rounded-full mx-auto max-w-max;
+  }
+
+  /* 🎭 User Avatar Styles */
+  .avatar {
+    @apply w-8 h-8 rounded-full object-cover flex-shrink-0;
+  }
+  
+  .avatar-lg {
+    @apply w-12 h-12 rounded-full object-cover flex-shrink-0;
+  }
+  
+  .avatar-online::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white;
+  }
+  
+  .avatar-away::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-3 h-3 bg-yellow-500 rounded-full border-2 border-white;
+  }
+  
+  .avatar-offline::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-3 h-3 bg-gray-400 rounded-full border-2 border-white;
+  }
+
+  /* 📝 Input Styles */
+  .chat-input {
+    @apply w-full px-4 py-3 bg-white border border-gray-300 rounded-full focus:ring-2 focus:ring-chat-primary focus:border-transparent resize-none max-h-32 transition-all duration-200;
+  }
+  
+  .emoji-picker-trigger {
+    @apply p-2 text-gray-500 hover:text-chat-primary hover:bg-chat-light rounded-full transition-colors duration-200;
+  }
+
+  /* 🏠 Room Styles */
+  .room-card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-4 cursor-pointer border border-gray-100 hover:border-chat-primary/20;
+  }
+  
+  .room-active {
+    @apply bg-chat-primary text-white shadow-md;
+  }
+
+  /* ⌨️ Typing Indicator */
+  .typing-indicator {
+    @apply flex items-center space-x-1 text-gray-500 text-sm py-2;
+  }
+  
+  .typing-dots {
+    @apply flex space-x-1;
+  }
+  
+  .typing-dot {
+    @apply w-1.5 h-1.5 bg-gray-400 rounded-full animate-typing;
+  }
+
+  /* 🔔 Notification Badge */
+  .notification-badge {
+    @apply absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold animate-bounce-gentle;
+  }
+
+  /* 📱 Mobile Chat Container */
+  .mobile-chat {
+    @apply fixed inset-0 bg-white z-50 flex flex-col;
+  }
+  
+  .desktop-chat {
+    @apply hidden lg:flex;
+  }
+
+  /* 🌈 Gradient Backgrounds */
+  .chat-gradient {
+    @apply bg-gradient-to-br from-chat-primary via-chat-secondary to-chat-accent;
+  }
+  
+  .chat-header-gradient {
+    @apply bg-gradient-to-r from-chat-primary to-chat-secondary;
+  }
+
+  /* 📤 File Upload Styles */
+  .file-upload-area {
+    @apply border-2 border-dashed border-gray-300 hover:border-chat-primary rounded-lg p-6 text-center transition-colors duration-200;
+  }
+  
+  .file-preview {
+    @apply bg-gray-50 rounded-lg p-3 flex items-center space-x-3 border border-gray-200;
+  }
+
+  /* 😀 Emoji Styles */
+  .emoji-reaction {
+    @apply bg-chat-light text-chat-primary px-2 py-1 rounded-full text-sm cursor-pointer hover:bg-chat-primary hover:text-white transition-colors duration-200;
+  }
+  
+  .emoji-reaction-active {
+    @apply bg-chat-primary text-white;
+  }
+
+  /* 🎨 Custom Scrollbar */
+  .chat-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chat-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .chat-scrollbar::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+  
+  .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+}
+
+@layer utilities {
+  /* 🎬 Custom Animations */
+  @keyframes messageSlide {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-message-slide {
+    animation: messageSlide 0.3s ease-out;
+  }
+  
+  /* 📱 Mobile-First Utilities */
+  .mobile-only {
+    @apply block lg:hidden;
+  }
+  
+  .desktop-only {
+    @apply hidden lg:block;
+  }
+  
+  /* 🎯 Focus Utilities */
+  .focus-chat {
+    @apply focus:ring-2 focus:ring-chat-primary focus:border-transparent focus:outline-none;
+  }
+  
+  /* 🔥 Status Indicators */
+  .status-online {
+    @apply bg-green-500;
+  }
+  
+  .status-away {
+    @apply bg-yellow-500;
+  }
+  
+  .status-busy {
+    @apply bg-red-500;
+  }
+  
+  .status-offline {
+    @apply bg-gray-400;
+  }
+}
