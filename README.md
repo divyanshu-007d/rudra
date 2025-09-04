@@ -19,7 +19,7 @@
 - **Samriddhi Dubey** - samriddhi0017@gmail.com  
 - **Abhishek** - abhishekmewada5887@gmail.com
 
---- 
+---
 
 ## 📊 Project Completion Summary
 This repository demonstrates the successful completion of all 21 days of the full-stack development challenge. Our team has implemented every required module, mini-task, and project as specified in the hackathon requirements. Each day's work is fully functional and ready for evaluation.
