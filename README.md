@@ -9,7 +9,7 @@
 [![Status](https://img.shields.io/badge/Status-Complete-success)](https://github.com/divyanshu-007d/rudra)
 
 ---
-
+ 
 ## � Team Information
 
 **Team Name:** Rudra
